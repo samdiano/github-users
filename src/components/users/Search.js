@@ -4,32 +4,38 @@ import axios from 'axios';
 
 class Search extends Component {
   state = {
-    trackTitle: ''
+    name: ''
   }
 
   findTrack = (dispatch, e) => {
     e.preventDefault();
-
-    axios.get(`http://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?q_track=${this.state.trackTitle}&page_size=10&page=1&s_track_rating=desc&apikey=${process.env.REACT_APP_MM_KEY}`)
-    .then(res => {
+    axios.get(`https://api.github.com/search/users?q=${this.state.name}`)
+      .then(res => {
+        // console.log(res)
+        axios.get(`https://api.github.com/users/${res}`);
       dispatch({
-        type: 'SEARCH_TRACKS',
-        payload: res.data.message.body.track_list
+        type: 'SEARCH_USERS',
+        payload: res.data.items
       });
-      this.setState({trackTitle: ''})
     })
     .catch(err => console.log(err))
   }
-  onChange = (e) => {
-    this.setState({[e.target.name]: e.target.value})
+  onChange = (dispatch, e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    }, () => {
+      this.findTrack(dispatch, e);
+  })
   }
+
   render() {
     return (
       <Consumer>
          {value => {
-           const {dispatch} = value;
-            return (
-              <div className='card card-body mb-4 p-4'>
+          const { dispatch } = value;
+        
+          return (
+            <div className='card card-body mb-4 p-4'>
                  <h1 className='display-5 text-center'>
                   <i className='fas fa-user'></i> Search Github Users
                  </h1>
@@ -38,10 +44,10 @@ class Search extends Component {
                    <div className='form-group'>
                      <input type='text'
                      className='form-control form-control-lg' 
-                     placeholder='Song title ...' 
-                     name='trackTitle' 
-                     value={this.state.trackTitle } 
-                     onChange={this.onChange}
+                     placeholder='name ...' 
+                     name='name' 
+                     value={this.state.name } 
+                     onChange={this.onChange.bind(this, dispatch)}
                      />
                    </div>
                    {/* <button className='btn btn-primary btn-lg btn-block mb-5' type='submit'>Get Track Lyrics</button> */}

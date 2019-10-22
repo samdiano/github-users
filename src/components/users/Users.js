@@ -9,18 +9,18 @@ export default class Tracks extends Component {
      <Consumer>
        {
          value => { 
-          const { track_list, heading } = value;
-          if (track_list === undefined || track_list.length === 0) {
+          const { users, heading } = value;
+          if (users === undefined || users.length === 0) {
             return <Spinner />
           } else {
             return (
               <React.Fragment>
                 <h1 className='text-center mb-4'>{heading}</h1>
                 <div className='row'>
-                  {track_list.map(item => (
+                  {users.map(item => (
                     <User
-                    key = {item.track.track_id}
-                    track = {item.track}
+                    key = {item.id}
+                    user = {item}
                     />
                   ))}
                 </div>
