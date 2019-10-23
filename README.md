@@ -33,7 +33,7 @@ The application is hosted [here](https://github-userz.herokuapp.com)
 ### Installation
 
 * git clone
-  [GithubUsers](https://github.com/samdiano/github-users.git)
+  [github-users](https://github.com/samdiano/github-users.git)
 * Run `yarn install` to install packages
 * Run `yarn start` to start the server
 * Navigate to [localhost:3000](http://localhost:3000/) in your browser to access the
