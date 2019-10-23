@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Spinner from '../layout/Spinner';
+import Repo from './Repo';
 import { Link } from 'react-router-dom';
-// import Moment from 'react-moment';
 
 class Info extends Component {
 	state = {
@@ -20,8 +20,8 @@ class Info extends Component {
 					`https://api.github.com/users/${res.data.login}/repos`
 				);
 			})
-      .then(res => {
-				console.log(res.data);        
+			.then(res => {
+				console.log(res.data);
 				this.setState({ repos: res.data });
 			})
 			.catch(err => console.log(err));
@@ -43,14 +43,10 @@ class Info extends Component {
 						Go back
 					</Link>
 					<div className='card'>
-						{/* <h5 className='card-header'>
-            {/* <img className="image" src={user.avatar_url} alt="" />               
-              {user.name} by <span className='text-secondary'>{user.name}</span> */}
-						{/* </h5> */}
 						<div className='card-body row'>
 							<div className='col-md-3'>
 								<img className='image' src={user.avatar_url} alt='' />
-								<div className="mt-2">
+								<div className='mt-2'>
 									<i className='fas fa-map-marker-alt'></i>{' '}
 									<span>{user.location}</span>
 								</div>
@@ -80,17 +76,12 @@ class Info extends Component {
 					</div>
 					<ul className='list-group mt-3'>
 						<li className='list-group-item'>
-							<strong>Album ID</strong>: {user.name}
+							<div className='row'>
+								{repos.map(repo => (
+									<Repo key={repo.id} repo={repo} />
+								))}
+							</div>
 						</li>
-						<li className='list-group-item'>
-							{/* <strong>Song Genre</strong>: {user.primary_genres.music_genre_list[0].music_genre.music_genre_name} */}
-						</li>
-						<li className='list-group-item'>
-							<strong>Explicit Words</strong>: {user.name ? 'Yes' : 'No'}
-						</li>
-						{/* <li className='list-group-item'>
-            <strong>Updated Date</strong>: <Moment format='DD/MM/YYYY'>{user.updated_time}</Moment>
-            </li> */}
 					</ul>
 				</React.Fragment>
 			);
