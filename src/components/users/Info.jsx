@@ -36,9 +36,11 @@ class Info extends Component {
 		} else {
 			return (
 				<React.Fragment>
-					<Link to='/' className='btn btn-dark btn-sm mb-4'>
-						Go back
-					</Link>
+					<div className='text-left'>
+						<Link to='/' className='btn btn-dark btn-sm mb-4'>
+							Go back
+						</Link>
+					</div>
 					<div className='card'>
 						<div className='card-body row'>
 							<div className='col-md-3'>
@@ -48,7 +50,7 @@ class Info extends Component {
 									<span>{user.location}</span>
 								</div>
 							</div>
-							<div className='col-md-8 mt-2'>
+							<div className='col-md-8 mt-2 text-left'>
 								<h2>{user.name}</h2>
 								<h3 className='text-secondary'>{user.login}</h3>
 								<div className='row mt-4 pt-5'>
