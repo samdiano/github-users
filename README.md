@@ -1,7 +1,7 @@
 # github-users
 
 
-GithubUsers is a simple react application which reactively searches through GitHub users and updates search results
+github-users is a simple react application which reactively searches through GitHub users and updates search results
 
 ## Table of Contents
 
