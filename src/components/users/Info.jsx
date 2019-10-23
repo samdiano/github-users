@@ -20,7 +20,8 @@ class Info extends Component {
 					`https://api.github.com/users/${res.data.login}/repos`
 				);
 			})
-			.then(res => {
+      .then(res => {
+				console.log(res.data);        
 				this.setState({ repos: res.data });
 			})
 			.catch(err => console.log(err));
@@ -48,15 +49,32 @@ class Info extends Component {
 						{/* </h5> */}
 						<div className='card-body row'>
 							<div className='col-md-3'>
-                <img className='image' src={user.avatar_url} alt='' />
-                <div><i className="fas fa-map-marker-alt"></i> <span>{user.location}</span></div>
+								<img className='image' src={user.avatar_url} alt='' />
+								<div className="mt-2">
+									<i className='fas fa-map-marker-alt'></i>{' '}
+									<span>{user.location}</span>
+								</div>
 							</div>
-							<div className='col-md-8'>
-								<h1>{user.name}</h1>
-								<h2 className='text-secondary'>{user.login}</h2>
-								<span className='card-text mt-5'><strong>Repositories</strong>: {user.public_repos} </span>
-								<span className='card-text mt-5'><strong>Followers</strong>: {user.followers} </span>
-								<span className='card-text mt-5'><strong>Following</strong>: {user.following} </span>
+							<div className='col-md-8 mt-2'>
+								<h2>{user.name}</h2>
+								<h3 className='text-secondary'>{user.login}</h3>
+								<div className='row mt-4 pt-5'>
+									<div className='col-md-4'>
+										<span className='card-text mt-5'>
+											<strong>Repositories</strong>: {user.public_repos}
+										</span>
+									</div>
+									<div className='col-md-4'>
+										<span className='card-text mt-5'>
+											<strong>Followers</strong>: {user.followers}
+										</span>
+									</div>
+									<div className='col-md-4'>
+										<span className='card-text mt-5'>
+											<strong>Following</strong>: {user.following}
+										</span>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
