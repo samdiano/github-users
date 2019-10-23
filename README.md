@@ -10,20 +10,15 @@ GithubUsers is a simple react application which reactively searches through GitH
  * [Getting Started](#getting-started)
     * [Installation](#installation)
     
-### Template
-Template is hosted at [https://samdiano.github.io/Diario/UI](https://samdiano.github.io/Diario/UI)
+### Deployment
+The application is hosted [here](https://github-userz.herokuapp.com)
 
 
 ## Technologies
 
-* [React](https://www.reactjs.com/) - JavaScript library for building user interfaces
-* [Yarn](https://www.yarnpkg.com/) - Dependency Manager
-
-### Supporting Packages
-
-#### Linter(s)
-
-* [ESLint](https://eslint.org/) - Linter Tool
+* [React](https://www.reactjs.com) - JavaScript library for building user interfaces
+* [Yarn](https://www.yarnpkg.com) - Dependency Manager
+* [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
 
 
 ## Features
