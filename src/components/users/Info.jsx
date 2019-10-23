@@ -14,21 +14,18 @@ class Info extends Component {
 		axios
 			.get(`https://api.github.com/users/${this.props.match.params.id}`)
 			.then(res => {
-				console.log(res.data);
 				this.setState({ user: res.data });
 				return axios.get(
 					`https://api.github.com/users/${res.data.login}/repos`
 				);
 			})
 			.then(res => {
-				console.log(res.data);
 				this.setState({ repos: res.data });
 			})
 			.catch(err => console.log(err));
 	}
 	render() {
 		const { user, repos } = this.state;
-		console.log(user);
 		if (
 			user === undefined ||
 			repos === undefined ||
