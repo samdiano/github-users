@@ -13,7 +13,7 @@ const Track = (props) => {
             {/* <br /> */}
             <strong><i className='fas fa-userss'></i> Username</strong>: {user.login}
           </p>
-          <Link to={`lyrics/track/${user.track_id}`} className="btn btn-dark btn-block">
+          <Link to={`users/${user.login}`} className="btn btn-dark btn-block">
             <i className="fas fa-chevron-right"></i> View User Details
           </Link>
         </div>
