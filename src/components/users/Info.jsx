@@ -74,7 +74,8 @@ class Info extends Component {
 						</div>
 					</div>
 					<ul className='list-group mt-3'>
-						<li className='list-group-item'>
+            <li className='list-group-item'>
+              <h2 className="text-center">Repositories</h2>
 							<div className='row'>
 								{repos.map(repo => (
 									<Repo key={repo.id} repo={repo} />
